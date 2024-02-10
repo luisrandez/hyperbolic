@@ -6,7 +6,9 @@ Created on  June 2023
 @author: M. Calvo, A. Elipe & L. Rández
 
 trpz_opt :  Use the trapezoidal composite rule for computing the integrals 
-            in the numerator and denominator in [0,pi]
+            in the numerator and denominator in [0,pi] for solving the 
+            hyperbolic Kepler equation  
+                  excen * sinh(z) - z = time_array. 
                  
 """
 import numpy as np
@@ -25,7 +27,8 @@ def trpz_opt(time_array, N_fft=32, excen=1.1, epsi=1):
                         ellipse relative to the Jordan contour, default 1 (circular).
 
     Returns:
-        np.ndarray: solution of the transcendental equation excen sinh(z) - z = time_array. 
+        np.ndarray: solution of the transcendental equation 
+                 excen * sinh(z) - z = time_array. 
     """
 # Input checks
     assert N_fft > 1, "Need at least two FFT grid-point!"
